@@ -10,14 +10,23 @@
         
 
         function getComputerChoice() {
+            //Create an array of choices
             const choices = ["rock", "paper", "scissors"];
-            const randomIndex = Math.floor(Math.random() * choices.length);
+            //Generate a random index
+            const randomIndex = Math.floor(Math.random() * choices.length); //this method will randomly return one of the indices for the choices array. In this case, it will be 0, 1, or 2, which correspond to the elements "rock", "paper", or "scissors" respectively.
+            //Return the choice at the random index
             return choices[randomIndex];
         }
 
-        
+        function getHumanChoice() {
+            const choices = ["rock", "paper", "scissors"];
+            const userChoice = prompt("Rock Paper Scissors")
+            return userChoice
+
+        }
 
         console.log(getComputerChoice())
+        console.log(getHumanChoice())
 
     </script>
 
