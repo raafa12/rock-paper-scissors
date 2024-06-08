@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+</head>
+<body>
+    <script>
+        //function to make the computer choose
+        function getComputerChoice() {
+            //Create an array of choices
+            const choices = ["rock", "paper", "scissors"];
+            //Generate a random index
+            const randomIndex = Math.floor(Math.random() * choices.length); //this method will randomly return one of the indices for the choices array. In this case, it will be 0, 1, or 2, which correspond to the elements "rock", "paper", or "scissors" respectively.
+            //Return the choice at the random index
+            return choices[randomIndex]
+        }
+
+        //function to make the user choose
+        function getHumanChoice() {
+            //Create an array of choices
+            const choices = ["rock", "paper", "scissors"];
+            //Generate a input to users choice
+            const userChoice = prompt("Rock, Paper, or Scissors?")
+            //Verificate if the election is valid
+            if (!choices.includes(userChoice)) {
+                alert("Invalid choice! Please choose Rock, Paper, or Scissors.")
+                return getHumanChoice()
+            }
+            //Return the choice
+            return userChoice
+
+        }
+
+        //Declare players score variables
+        let humanScore = 0
+        let computerScore = 0
+
+        //function to takes the choices as arguments and increment the score depends the winner
+        function playRound(humanChoice, computerChoice) {
+            const humanSelection = humanChoice.toUpperCase()
+            const computerSelection = computerChoice.toUppercase()
+
+            let result = ""
+            if (humanSelection === computerSelection) {
+                result = "Tie"
+            } else if (
+                (humanSelection === "ROCK" && computerSelection === "SCISSORS") ||
+                (humanSelection === "PAPER" && computerSelection === "ROCK") ||
+                (humanSelection === "SCISSORS" && computerSelection === "PAPER")
+            ) {
+                humanScore++;
+                result = "You win this round!";
+            } else {
+                computerScore++;
+                result = "Computer wins this round!"
+
+            }
+        }
+            console.log(playRound(humanChoice, computerChoice))
+
+    </script>
+
+</body>
+</html>
