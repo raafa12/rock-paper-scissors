@@ -17,22 +17,44 @@
             //Return the choice at the random index
             return choices[randomIndex];
         }
-        //function to make the user choose
+        //Function to make the user choose
         function getHumanChoice() {
             //Create an array of choices
             const choices = ["rock", "paper", "scissors"];
             //Generate a input to users choice
             const userChoice = prompt("Rock Paper Scissors")
             //Verificate if the election is valid
-            if (!choices.includes(userChoice)) {
+            if (!choices.includes(userChoice)) { //The negation operator "!" allows to use the method in reverse
                 alert("Invalid choice! Please choose Rock, Paper, or Scissors.")
                 return getHumanChoice()
             }
             //Return the choice
             return userChoice
-
         }
 
+        //Declare the players score variables
+        let humanScore = 0
+        let computerScore = 0
+
+        //Function with the logic to play a single round
+        function playRound(humanChoice, computerChoice) {
+            //Variable declaration for the selections and case-insensitive parameter 
+            const humanSelection = humanChoice.toUpperCase()
+            const computerSelection = computerChoice.toUpperCase()
+
+            let result = "" //Variable declaration for the result
+            if (humanSelection === computerSelection) { //Conditional use to evaluate if the computer and user selection its the same
+                result = "Tie!"
+            } else if (
+                (humanSelection === "ROCK" && computerSelection === "SCISSORS") ||
+                (humanSelection === "PAPER" && computerSelection === "ROCK") ||
+                (humanSelection === "SCISSORS" && computerSelection === "PAPER")
+            ) {
+                
+            }
+
+        }
+        
         console.log(getComputerChoice())
         console.log(getHumanChoice())
 
