@@ -41,18 +41,26 @@
             //Variable declaration for the selections and case-insensitive parameter 
             const humanSelection = humanChoice.toUpperCase()
             const computerSelection = computerChoice.toUpperCase()
-
-            let result = "" //Variable declaration for the result
-            if (humanSelection === computerSelection) { //Conditional use to evaluate if the computer and user selection its the same
+            //Variable declaration for the result
+            let result = ""
+            //Using conditional to evaluate if the computer and user selection its the same
+            if (humanSelection === computerSelection) { 
                 result = "Tie!"
+            //Use of conditional in case the previous condition is false 
             } else if (
-                (humanSelection === "ROCK" && computerSelection === "SCISSORS") ||
+                //The strict equality operator === verificates if the variable humanSelection have the value "ROCK", && (AND) is a logic operator which is used to combine two conditions. The entire condition will only be true if both parts are true.
+                (humanSelection === "ROCK" && computerSelection === "SCISSORS") || 
                 (humanSelection === "PAPER" && computerSelection === "ROCK") ||
                 (humanSelection === "SCISSORS" && computerSelection === "PAPER")
             ) {
-                
+                //If any of those conditions its true the variable humanScore will increase by one point and print the message 
+                humanScore++
+                result = "User win this round!" 
+            //Use of conditional in case none of the above conditions are true 
+            } else {
+                computerScore++
+                result = "Computer wins this round!"
             }
-
         }
         
         console.log(getComputerChoice())
