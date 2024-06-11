@@ -10,11 +10,11 @@
         
         //function to make the computer choose
         function getComputerChoice() {
-            //Create an array of choices
+            //Create a variable containing an array of choices
             const choices = ["rock", "paper", "scissors"];
-            //Generate a random index
-            const randomIndex = Math.floor(Math.random() * choices.length); //this method will randomly return one of the indices for the choices array. In this case, it will be 0, 1, or 2, which correspond to the elements "rock", "paper", or "scissors" respectively.
-            //Return the choice at the random index
+            //Create a variable whose content is a random choice between the choices 
+            const randomIndex = Math.floor(Math.random() * choices.length); //Uses Math.random() to generate a random number between 0 and 1, multiplies it by the array length with choices.length, and uses Math.floor() to round it down, obtaining a random integer index for the array. 
+            // Returns the element from the array 'choices' at the randomly generated index 'randomIndex'
             return choices[randomIndex];
         }
         //Function to make the user choose
@@ -32,39 +32,46 @@
             return userChoice
         }
 
-        //Declare the players score variables
-        let humanScore = 0
-        let computerScore = 0
+            function playGame() {
+                //Declare the players score variables
+                let humanScore = 0
+                let computerScore = 0
 
-        //Function with the logic to play a single round
-        function playRound(humanChoice, computerChoice) {
-            //Variable declaration for the selections and case-insensitive parameter 
-            const humanSelection = humanChoice.toUpperCase()
-            const computerSelection = computerChoice.toUpperCase()
-            //Variable declaration for the result
-            let result = ""
-            //Using conditional to evaluate if the computer and user selection its the same
-            if (humanSelection === computerSelection) { 
-                result = "Tie!"
-            //Use of conditional in case the previous condition is false 
-            } else if (
-                //The strict equality operator === verificates if the variable humanSelection have the value "ROCK", && (AND) is a logic operator which is used to combine two conditions. The entire condition will only be true if both parts are true.
-                (humanSelection === "ROCK" && computerSelection === "SCISSORS") || 
-                (humanSelection === "PAPER" && computerSelection === "ROCK") ||
-                (humanSelection === "SCISSORS" && computerSelection === "PAPER")
-            ) {
-                //If any of those conditions its true the variable humanScore will increase by one point and print the message 
-                humanScore++
-                result = "User win this round!" 
-            //Use of conditional in case none of the above conditions are true 
-            } else {
-                computerScore++
-                result = "Computer wins this round!"
+                //Function with the logic to play a single round
+                function playRound(humanChoice, computerChoice) {
+                    //Variable declaration for the selections and case-insensitive parameter 
+                    const humanSelection = humanChoice.toUpperCase()
+                    const computerSelection = computerChoice.toUpperCase()
+                    //Variable declaration for the result
+                    let result = ""
+                    //Using conditional to evaluate if the computer and user selection its the same
+                    if (humanSelection === computerSelection) { 
+                        result = "Its a tie!"
+                    //Use of conditional in case the previous condition is false 
+                    } else if (
+                        //The strict equality operator === verificates if the variable humanSelection have the value "ROCK", && (AND) is a logic operator which is used to combine two conditions. The entire condition will only be true if both parts are true.
+                        (humanSelection === "ROCK" && computerSelection === "SCISSORS") || 
+                        (humanSelection === "PAPER" && computerSelection === "ROCK") ||
+                        (humanSelection === "SCISSORS" && computerSelection === "PAPER")
+                    ) {
+                        //If any of those conditions its true the variable humanScore will increase by one point and print the message 
+                        humanScore++
+                        result = "User win this round!" 
+                    //Use of conditional in case none of the above conditions are true 
+                    } else {
+                        computerScore++
+                        result = "Computer wins this round!"
+                    }
+                    return result, computerScore
+                }
             }
-        }
-        
-        console.log(getComputerChoice())
-        console.log(getHumanChoice())
+
+        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
+        const roundResult = playRound(humanChoice, computerChoice, humanScore,);
+        console.log(humanChoice)
+        console.log(computerChoice)
+        console.log(roundResult);
 
     </script>
 
