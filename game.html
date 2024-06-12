@@ -32,46 +32,48 @@
             return userChoice
         }
 
-            function playGame() {
-                //Declare the players score variables
-                let humanScore = 0
-                let computerScore = 0
+        function playGame() {
+            //Declare the players score variables
+            let humanScore = 0
+            let computerScore = 0
 
-                //Function with the logic to play a single round
-                function playRound(humanChoice, computerChoice) {
-                    //Variable declaration for the selections and case-insensitive parameter 
-                    const humanSelection = humanChoice.toUpperCase()
-                    const computerSelection = computerChoice.toUpperCase()
-                    //Variable declaration for the result
-                    let result = ""
-                    //Using conditional to evaluate if the computer and user selection its the same
-                    if (humanSelection === computerSelection) { 
-                        result = "Its a tie!"
-                    //Use of conditional in case the previous condition is false 
-                    } else if (
-                        //The strict equality operator === verificates if the variable humanSelection have the value "ROCK", && (AND) is a logic operator which is used to combine two conditions. The entire condition will only be true if both parts are true.
-                        (humanSelection === "ROCK" && computerSelection === "SCISSORS") || 
-                        (humanSelection === "PAPER" && computerSelection === "ROCK") ||
-                        (humanSelection === "SCISSORS" && computerSelection === "PAPER")
-                    ) {
-                        //If any of those conditions its true the variable humanScore will increase by one point and print the message 
-                        humanScore++
-                        result = "User win this round!" 
-                    //Use of conditional in case none of the above conditions are true 
-                    } else {
-                        computerScore++
-                        result = "Computer wins this round!"
-                    }
-                    return result, computerScore
+            //Function with the logic to play a single round
+            function playRound(humanChoice, computerChoice) {
+                //Variable declaration for the selections and case-insensitive parameter 
+                const humanSelection = humanChoice.toUpperCase()
+                const computerSelection = computerChoice.toUpperCase()
+                //Variable declaration for the result
+                let result = ""
+                //Using conditional to evaluate if the computer and user selection its the same
+                if (humanSelection === computerSelection) { 
+                    result = "Its a tie!"
+                //Use of conditional in case the previous condition is false 
+                } else if (
+                    //The strict equality operator === verificates if the variable humanSelection have the value "ROCK", && (AND) is a logic operator which is used to combine two conditions. The entire condition will only be true if both parts are true.
+                    (humanSelection === "ROCK" && computerSelection === "SCISSORS") || 
+                    (humanSelection === "PAPER" && computerSelection === "ROCK") ||
+                    (humanSelection === "SCISSORS" && computerSelection === "PAPER")
+                ) {
+                    //If any of those conditions its true the variable humanScore will increase by one point and print the message 
+                    humanScore++
+                    result = "User win this round!" 
+                //Use of conditional in case none of the above conditions are true 
+                } else {
+                    computerScore++
+                    result = "Computer wins this round!"
+                }
+                return result, computerScore
                 }
             }
 
         const humanChoice = getHumanChoice();
         const computerChoice = getComputerChoice();
-        const roundResult = playRound(humanChoice, computerChoice, humanScore,);
+        const roundResult = playRound(humanChoice, computerChoice,);
+        const gameResult = (humanScore, computerScore)
         console.log(humanChoice)
         console.log(computerChoice)
         console.log(roundResult);
+        console.log(gameResult)
 
     </script>
 
