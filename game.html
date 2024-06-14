@@ -8,7 +8,9 @@
 <body>
     <script>
         
-        
+        let humanScore = 0
+        let computerScore = 0
+
         function getComputerChoice() {
             const choices = ["rock", "paper", "scissors"];
             // Generate a random index to select a choice from the 'choices' array 
@@ -56,8 +58,6 @@
         }
 
         function playGame() {//Logic to play the entire game
-            let humanScore = 0
-            let computerScore = 0
             const rounds = 5 
             //A for loop to repeat the round 
             for (let i = 0; i < rounds; i++) { 
@@ -67,24 +67,16 @@
                 const humanChoice = getHumanChoice()
                 const computerChoice = getComputerChoice()
                 const roundResult = playRound(humanChoice, computerChoice)
-            }
+            
             console.log(`Round ${i + 1}:`)
-            // Logs the current round number to the console. 
-            // `i + 1` is used because `i` starts at 0, 
-            // so adding 1 makes the round number start from 1 instead of 0.
             console.log(`User choice: ${humanChoice}`)
-            // Logs the user's choice to the console.
-            // `humanChoice` holds the value of the user's selected option 
-            // (e.g., "rock", "paper", or "scissors")
             console.log(`Computer choice: ${computerChoice}`)
-            // Logs the computer's choice to the console.
-            // `computerChoice` holds the value of the computer's randomly selected option 
-            // (e.g., "rock", "paper", or "scissors").
             console.log(roundResult)
-            // Logs the result of the current round to the console.
-            // `roundResult` contains the outcome of the round as determined by the `playRound` function.
-            // The result could be a string like "User wins this round!", "Computer wins this round!", or "It's a tie!".
+            console.log(`Score: User ${humanScore} - ${computerScore} Computer`)
+            }
         }
+
+        playGame()
     </script>
 
 </body>
