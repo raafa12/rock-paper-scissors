@@ -6,7 +6,11 @@
     <title>game</title>
 </head>
 <body>
+    <button id="btn">Rock</button>
+    <button id="btn2">Paper</button>
+    <button id="btn3">Scissors</button>
     <script>
+        
         
         let humanScore = 0
         let computerScore = 0
@@ -19,7 +23,10 @@
         
         function getHumanChoice() {
             const choices = ["rock", "paper", "scissors"];
-            const userChoice = prompt("Rock Paper Scissors") 
+            const userChoice = document.querySelector("#btn")
+        btn.addEventListener("click", () => {
+            alert("Rock")
+        }) 
 
             if (!choices.includes(userChoice)) { 
                 alert("Invalid choice! Please choose Rock, Paper, or Scissors.")
@@ -51,18 +58,17 @@
          
 
         function playGame() {
-            const rounds = 5 
-            for (let i = 0; i < rounds; i++) { 
-                const humanChoice = getHumanChoice()
-                const computerChoice = getComputerChoice()
-                const roundResult = playRound(humanChoice, computerChoice)
+            const rounds = 0  
+            const humanChoice = getHumanChoice()
+            const computerChoice = getComputerChoice()
+            const roundResult = playRound(humanChoice, computerChoice)
     
             console.log(`Round ${i + 1}:`)
             console.log(`User choice: ${humanChoice}`)
             console.log(`Computer choice: ${computerChoice}`)
             console.log(roundResult)
             console.log(`Score: User ${humanScore} - ${computerScore} Computer`)
-            }
+            
         }
 
         playGame()
