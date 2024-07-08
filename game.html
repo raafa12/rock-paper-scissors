@@ -11,34 +11,29 @@
     <button id="btn3">Scissors</button>
     <script>
         
-        
+        const btn = document.querySelector("#btn")
+            btn.addEventListener("click", () => {
+            alert("Rock")
+            })
+
         let humanScore = 0
         let computerScore = 0
 
         function getComputerChoice() {
-            const choices = ["rock", "paper", "scissors"]; 
-            const randomIndex = Math.floor(Math.random() * choices.length); 
-            return choices[randomIndex]; 
+            const computerChoice = ["rock", "paper", "scissors"]; 
+            const randomIndex = Math.floor(Math.random() * computerChoice.length); 
+            return computerChoice[randomIndex]; 
         }
         
         function getHumanChoice() {
-            const choices = ["rock", "paper", "scissors"];
-            const userChoice = document.querySelector("#btn")
-        btn.addEventListener("click", () => {
-            alert("Rock")
-        }) 
-
-            if (!choices.includes(userChoice)) { 
-                alert("Invalid choice! Please choose Rock, Paper, or Scissors.")
-                return getHumanChoice()
-            }
-            return userChoice 
+            const choices = ["btn", "btn2", "btn3"];
+            const humanChoice = document.querySelector("#btn", "#btn2", "#btn3")   
 
         }
         
-        function playRound(humanChoice, computerChoice) { 
-            const humanSelection = humanChoice.toUpperCase()
-            const computerSelection = computerChoice.toUpperCase()
+        function playRound() { 
+            const humanSelection = humanChoice
+            const computerSelection = computerChoice
             let result = ""
             if (humanSelection === computerSelection) { 
                 result = "Its a tie!"
@@ -63,7 +58,7 @@
             const computerChoice = getComputerChoice()
             const roundResult = playRound(humanChoice, computerChoice)
     
-            console.log(`Round ${i + 1}:`)
+            
             console.log(`User choice: ${humanChoice}`)
             console.log(`Computer choice: ${computerChoice}`)
             console.log(roundResult)
