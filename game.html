@@ -15,6 +15,15 @@
             btn.addEventListener("click", () => {
             alert("Rock")
             })
+        const btn2 = document.querySelector("#btn2")
+            btn.addEventListener("click", () => {
+            alert("Paper")
+            })
+        const btn3 = document.querySelector("#btn3")
+            btn.addEventListener("click", () => {
+            alert("Scissors")
+            })
+
 
         let humanScore = 0
         let computerScore = 0
@@ -59,10 +68,9 @@
             const roundResult = playRound(humanChoice, computerChoice)
     
             
-            console.log(`User choice: ${humanChoice}`)
-            console.log(`Computer choice: ${computerChoice}`)
-            console.log(roundResult)
-            console.log(`Score: User ${humanScore} - ${computerScore} Computer`)
+            console.log(humanChoice)
+            console.log(computerChoice)
+            
             
         }
 
