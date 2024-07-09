@@ -9,72 +9,60 @@
     <button id="btn">Rock</button>
     <button id="btn2">Paper</button>
     <button id="btn3">Scissors</button>
+    <div>Results:</div> <button onclick="log_console(`Human Score: ${humanScore}`,`Computer Score: ${computerScore}`)">
+        View Message 
+   </button>
     <script>
-        
-        const btn = document.querySelector("#btn")
-            btn.addEventListener("click", () => {
-            alert("Rock")
-            })
-        const btn2 = document.querySelector("#btn2")
-            btn.addEventListener("click", () => {
-            alert("Paper")
-            })
-        const btn3 = document.querySelector("#btn3")
-            btn.addEventListener("click", () => {
-            alert("Scissors")
-            })
+        const btn = document.querySelector("#btn");
+        const btn2 = document.querySelector("#btn2");
+        const btn3 = document.querySelector("#btn3");
 
+        btn.addEventListener("click", () => {
+            playGame("rock");
+        });
 
-        let humanScore = 0
-        let computerScore = 0
+        btn2.addEventListener("click", () => {
+            playGame("paper");
+        });
+
+        btn3.addEventListener("click", () => {
+            playGame("scissors");
+        });
+
+        let humanScore = 0;
+        let computerScore = 0;
 
         function getComputerChoice() {
-            const computerChoice = ["rock", "paper", "scissors"]; 
-            const randomIndex = Math.floor(Math.random() * computerChoice.length); 
-            return computerChoice[randomIndex]; 
+            const computerChoices = ["rock", "paper", "scissors"];
+            const randomIndex = Math.floor(Math.random() * computerChoices.length);
+            return computerChoices[randomIndex];
         }
-        
-        function getHumanChoice() {
-            const choices = ["btn", "btn2", "btn3"];
-            const humanChoice = document.querySelector("#btn", "#btn2", "#btn3")   
 
-        }
-        
-        function playRound() { 
-            const humanSelection = humanChoice
-            const computerSelection = computerChoice
-            let result = ""
-            if (humanSelection === computerSelection) { 
-                result = "Its a tie!"
-            } else if ( 
-                (humanSelection === "ROCK" && computerSelection === "SCISSORS") || 
-                (humanSelection === "PAPER" && computerSelection === "ROCK") ||
-                (humanSelection === "SCISSORS" && computerSelection === "PAPER")
+        function playRound(humanChoice, computerChoice) {
+            let result = "";
+            if (humanChoice === computerChoice) {
+                result = "It's a tie!";
+            } else if (
+                (humanChoice === "rock" && computerChoice === "scissors") ||
+                (humanChoice === "paper" && computerChoice === "rock") ||
+                (humanChoice === "scissors" && computerChoice === "paper")
             ) {
-                humanScore++
-                result = "User win this round!"  
-            } else { 
-                computerScore++
-                result = "Computer wins this round!"
+                humanScore++;
+                result = "User wins this round!";
+            } else {
+                computerScore++;
+                result = "Computer wins this round!";
             }
-            return result
-        }
-         
-
-        function playGame() {
-            const rounds = 0  
-            const humanChoice = getHumanChoice()
-            const computerChoice = getComputerChoice()
-            const roundResult = playRound(humanChoice, computerChoice)
-    
-            
-            console.log(humanChoice)
-            console.log(computerChoice)
-            
-            
+            alert(`Human: ${humanChoice}\nComputer: ${computerChoice}\n${result}`);
         }
 
-        playGame()
+        function playGame(humanChoice) {
+            const computerChoice = getComputerChoice();
+            playRound(humanChoice, computerChoice); 
+            console.log(`Human Score: ${humanScore}`);
+            console.log(`Computer Score: ${computerScore}`);
+            
+        }
     </script>
 
 </body>
