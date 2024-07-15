@@ -57,10 +57,23 @@
 
         function playGame(humanChoice) {
             const computerChoice = getComputerChoice();
-            playRound(humanChoice, computerChoice); 
-            console.log(`Human Score: ${humanScore}`);
-            console.log(`Computer Score: ${computerScore}`);
-            
+            playRound(humanChoice, computerChoice);
+            if (humanScore === 5) {
+                announceWinner("User");
+            } else if (computerScore === 5) {
+                announceWinner("Computer");
+            }
+        }
+
+        function announceWinner(winner) {
+            document.getElementById('result').innerHTML += `<br><strong>${winner} wins the game!</strong>`;
+            disableButtons();
+        }
+
+        function disableButtons() {
+            btn.disabled = true;
+            btn2.disabled = true;
+            btn3.disabled = true;
         }
     </script>
 
