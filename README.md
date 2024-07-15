@@ -1,2 +1,2 @@
 # rock-paper-scissors 
-Variant of the first JavasCript program. This one allows the user to play with an UI
+First JavasCript program of the fundations course. Allows the user to play against the computer a five round rock, paper, scissors game.
